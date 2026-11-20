@@ -4,6 +4,8 @@ Register facts come from stock driver code (KernelImg), cross-checked against
 mainline Linux drivers for the same IP where one exists. Tags as in the
 [index](README.md).
 
+![UMS9117 blocks and the off-chip parts they connect to](img/peripheral-map.svg)
+
 ## ADI and the PMIC
 
 The PMIC (an SC27xx-family part; the audio codec inside is the "SC2720" block) is on

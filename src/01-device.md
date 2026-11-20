@@ -30,6 +30,9 @@ Flashing uses Unisoc's BSL protocol over USB ([page 3](03-flashing-and-recovery.
 
 ## Memory map
 
+![Memory map: physical address space and the 64 MB DRAM to scale](img/memory-map.svg)
+
+
 | Range | What | Notes |
 |---|---|---|
 | `0x00000000`-`0x0000FFFF` | on-chip RAM (boot ROM loads FDL1 to `0x6200`); exception vectors at `0x0..0x3C` in stock | |
@@ -55,6 +58,9 @@ Stock zeroes `0x80000000+128K` and `0x83FE0000+128K` at start-up. The modem side
 which areas the DSPs still write ([page 10](10-modem-under-linux.md)).
 
 ## SoC blocks
+
+![UMS9117 blocks with base addresses and SPI numbers, and the off-chip parts they connect to](img/peripheral-map.svg)
+
 
 All from stock driver code unless marked.
 

@@ -45,6 +45,9 @@ Be explicit about scope: all results are from one phone and one operator environ
 
 ## Architecture
 
+![mocord architecture: stock images in a Linux process, compatibility layer, interrupt forwarding and shared-hardware drivers](img/modem-under-linux.svg)
+
+
 **Memory.** Map the kernel code `0x80E65E00..0x81A91200` and the user image at `0x88000000` with
 `mmap(MAP_FIXED)` (file-backed, only touched pages use RAM). User space reaches `0xBF000000` with a 3G/1G
 split. Reserve `0x81B00000..0x826B8000` (11.7 MiB), the DSP ranges and the two 128 KiB blocks as `no-map`

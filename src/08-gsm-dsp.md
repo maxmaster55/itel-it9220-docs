@@ -120,6 +120,9 @@ handlers are never serviced even though line 69 fires.
 
 ## Queues (dual-port area, offsets from `0x10C00`)
 
+![FrameInst and RespQ queues in the dual-port area and the mailbox interrupt path](img/gsm-dsp-flow.svg)
+
+
 | Offset | What | Writer |
 |---|---|---|
 | `0x000` | **FrameInst**: 26 slots x 36 bytes | AP |

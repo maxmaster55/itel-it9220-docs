@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="860" viewBox="0 0 960 860" role="img" aria-labelledby="t d">
+<title id="t">UMS9117 peripheral map</title>
+<desc id="d">The UMS9117 register blocks with base addresses and GIC SPI numbers, and the off-chip parts they connect to on the IT9220: PMIC, LCD, SPI NAND, microSD, Marlin2 Wi-Fi/BT/FM, USB-C and the keypad.</desc>
+<style>text{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;fill:#1f2328}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.mu{fill:#59636e}
+.b{font-weight:600}
+.h{font-size:20px;font-weight:700}
+.sub{font-size:13px;fill:#59636e}</style>
+<defs><marker id="a59636e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#59636e"/></marker><marker id="a8250df" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#8250df"/></marker></defs>
+<rect width="960" height="860" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<text x="24" y="36" font-size="20" class="h">UMS9117 blocks on the IT9220</text>
+<text x="24" y="56" font-size="13" class="sub">Base address and GIC SPI number of each block (from stock driver code). Right and bottom: off-chip parts.</text>
+<rect x="24" y="72" width="650" height="612" rx="10" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="38" y="94" font-size="14" class="b" style="fill:#6e7781">UMS9117 SoC</text>
+<rect x="44" y="104" width="190" height="50" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="56" y="125" font-size="14" class="b" style="fill:#0969da">Cortex-A7</text>
+<text x="56" y="143" font-size="12">one core, about 1 GHz</text>
+<rect x="250" y="104" width="190" height="50" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="262" y="125" font-size="14" class="b" style="fill:#0969da">GIC v2</text>
+<text x="262" y="143" font-size="12"><tspan class="m">0x12001000</tspan> / <tspan class="m">0x12002000</tspan></text>
+<rect x="456" y="104" width="198" height="50" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="468" y="125" font-size="14" class="b" style="fill:#1a7f37">DRAM 64 MB</text>
+<text x="468" y="143" font-size="12"><tspan class="m">0x80000000</tspan></text>
+<text x="44" y="186" font-size="13" class="b" style="fill:#0969da">APB / AON  (0x40000000+)</text>
+<rect x="44" y="196" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="213" font-size="12">Codec (digital)</text>
+<text x="184" y="213" font-size="11.5"><tspan class="m">0x40000000</tspan></text>
+<text x="336" y="213" font-size="11.5" class="mu" text-anchor="end">SPI 20</text>
+<rect x="44" y="226" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="243" font-size="12">VBC</text>
+<text x="184" y="243" font-size="11.5"><tspan class="m">0x40020000</tspan></text>
+<rect x="44" y="256" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="273" font-size="12">Mailbox in / out</text>
+<text x="184" y="273" font-size="11.5"><tspan class="m">0x400A0000</tspan></text>
+<text x="336" y="273" font-size="11.5" class="mu" text-anchor="end">SPI 68/69</text>
+<rect x="44" y="286" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="303" font-size="12">AP timer 0</text>
+<text x="184" y="303" font-size="11.5"><tspan class="m">0x40220000</tspan></text>
+<text x="336" y="303" font-size="11.5" class="mu" text-anchor="end">SPI 29</text>
+<rect x="44" y="316" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="333" font-size="12">1 kHz counter</text>
+<text x="184" y="333" font-size="11.5"><tspan class="m">0x4023000C</tspan></text>
+<text x="336" y="333" font-size="11.5" class="mu" text-anchor="end">SPI 31</text>
+<rect x="44" y="346" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="363" font-size="12">Pin / strap</text>
+<text x="184" y="363" font-size="11.5"><tspan class="m">0x40250000</tspan></text>
+<rect x="44" y="376" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="393" font-size="12">GPIO (128 lines)</text>
+<text x="184" y="393" font-size="11.5"><tspan class="m">0x40280000</tspan></text>
+<text x="336" y="393" font-size="11.5" class="mu" text-anchor="end">SPI 35</text>
+<rect x="44" y="406" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="423" font-size="12">Pinmux</text>
+<text x="184" y="423" font-size="11.5"><tspan class="m">0x402A0000</tspan></text>
+<rect x="44" y="436" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="453" font-size="12">PMU / radio power</text>
+<text x="184" y="453" font-size="11.5"><tspan class="m">0x402B0000</tspan></text>
+<rect x="44" y="466" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="483" font-size="12">AON clock gates</text>
+<text x="184" y="483" font-size="11.5"><tspan class="m">0x402E0000</tspan></text>
+<rect x="44" y="496" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="513" font-size="12">Watchdog (AP)</text>
+<text x="184" y="513" font-size="11.5"><tspan class="m">0x40310000</tspan></text>
+<text x="336" y="513" font-size="11.5" class="mu" text-anchor="end">SPI 123</text>
+<rect x="44" y="526" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="543" font-size="12">UART0 / 1 / 2</text>
+<text x="184" y="543" font-size="11.5"><tspan class="m">0x70000000</tspan></text>
+<text x="336" y="543" font-size="11.5" class="mu" text-anchor="end">SPI 18/3/17</text>
+<rect x="44" y="556" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="573" font-size="12">Keypad</text>
+<text x="336" y="573" font-size="11.5" class="mu" text-anchor="end">SPI 36</text>
+<rect x="44" y="586" width="300" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="52" y="603" font-size="12">ADI (PMIC bus)</text>
+<text x="184" y="603" font-size="11.5"><tspan class="m">0x40600000</tspan></text>
+<text x="336" y="603" font-size="11.5" class="mu" text-anchor="end">SPI 25</text>
+<text x="364" y="186" font-size="13" class="b" style="fill:#0969da">AHB  (0x20000000+)</text>
+<rect x="364" y="196" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="213" font-size="12">AP DMA</text>
+<text x="494" y="213" font-size="11.5"><tspan class="m">0x20100000</tspan></text>
+<text x="646" y="213" font-size="11.5" class="mu" text-anchor="end">SPI 50</text>
+<rect x="364" y="226" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="243" font-size="12">AHB clock gates</text>
+<text x="494" y="243" font-size="11.5"><tspan class="m">0x20E00000</tspan></text>
+<rect x="364" y="256" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="273" font-size="12">MUSB (USB device)</text>
+<text x="494" y="273" font-size="11.5"><tspan class="m">0x20200000</tspan></text>
+<text x="646" y="273" font-size="11.5" class="mu" text-anchor="end">SPI 55</text>
+<rect x="364" y="312" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="329" font-size="12">SDIO0</text>
+<text x="494" y="329" font-size="11.5"><tspan class="m">0x20300000</tspan></text>
+<text x="646" y="329" font-size="11.5" class="mu" text-anchor="end">SPI 57</text>
+<rect x="364" y="368" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="385" font-size="12">SDIO1</text>
+<text x="494" y="385" font-size="11.5"><tspan class="m">0x20400000</tspan></text>
+<text x="646" y="385" font-size="11.5" class="mu" text-anchor="end">SPI 58</text>
+<rect x="364" y="424" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="441" font-size="12">LCDC (SPI1)</text>
+<text x="494" y="441" font-size="11.5"><tspan class="m">0x20800000</tspan></text>
+<text x="646" y="441" font-size="11.5" class="mu" text-anchor="end">SPI 19</text>
+<rect x="364" y="480" width="290" height="26" rx="4" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<text x="372" y="497" font-size="12">SPI-NAND ctrl</text>
+<text x="494" y="497" font-size="11.5"><tspan class="m">0x21A00000</tspan></text>
+<text x="646" y="497" font-size="11.5" class="mu" text-anchor="end">SPI 59</text>
+<rect x="714" y="245" width="222" height="48" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="726" y="266" font-size="13" class="b" style="fill:#6e7781">USB Type-C</text>
+<text x="726" y="284" font-size="12">charge + data</text>
+<path d="M655,269 L713,269" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="714" y="301" width="222" height="48" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="726" y="322" font-size="13" class="b" style="fill:#6e7781">microSD slot</text>
+<text x="726" y="340" font-size="12">card detect broken: poll</text>
+<path d="M655,325 L713,325" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="714" y="357" width="222" height="48" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="726" y="378" font-size="13" class="b" style="fill:#6e7781">Marlin2 combo chip</text>
+<text x="726" y="396" font-size="12">Wi-Fi, BT, FM (page 6)</text>
+<path d="M655,381 L713,381" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="714" y="413" width="222" height="48" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="726" y="434" font-size="13" class="b" style="fill:#6e7781">ST7789 panel</text>
+<text x="726" y="452" font-size="12">240 x 320, SPI1, 48 MHz</text>
+<path d="M655,437 L713,437" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="714" y="469" width="222" height="48" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="726" y="490" font-size="13" class="b" style="fill:#6e7781">SPI NAND</text>
+<text x="726" y="508" font-size="12">128 MiB, 128 KiB blocks</text>
+<path d="M655,493 L713,493" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="364" y="548" width="290" height="120" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="376" y="569" font-size="14" class="b" style="fill:#9a6700">Modem subsystem</text>
+<text x="376" y="587" font-size="12">GSM DSP, CEVA TeakLite-4 (core 2)</text>
+<text x="376" y="604" font-size="12">LTE DSP (core 3)</text>
+<text x="376" y="621" font-size="12">Cortex-M4 (CM4) firmware</text>
+<text x="376" y="638" font-size="12">I/O windows <tspan class="m">0xC0000000</tspan>-<tspan class="m">0xEFFFFFFF</tspan></text>
+<path d="M345,269 L354,269 L354,608 L363,608" fill="none" stroke="#8250df" stroke-width="1.5" marker-end="url(#a8250df)" marker-start="url(#a8250df)"/>
+<rect x="24" y="712" width="300" height="132" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="36" y="733" font-size="14" class="b" style="fill:#6e7781">Keypad matrix</text>
+<text x="36" y="751" font-size="12">keymap <tspan class="m">u16[64]</tspan>, col*8 + row</text>
+<text x="36" y="768" font-size="12">GPIO mapping from strap <tspan class="m">0x4025002C</tspan></text>
+<text x="36" y="785" font-size="12">End key = power key (via PMIC)</text>
+<text x="36" y="802" font-size="12">no side or volume keys</text>
+<path d="M43,569 L34,569 L34,711" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="344" y="712" width="592" height="132" rx="6" fill="#fbefff" stroke="#8250df" stroke-width="1.2"/>
+<text x="356" y="733" font-size="14" class="b" style="fill:#8250df">PMIC (SC27xx family), registers at <tspan class="m">0x40608000</tspan>+</text>
+<text x="356" y="751" font-size="12">RTC · ADC (battery) · SC2720 audio codec with loudspeaker PA</text>
+<text x="356" y="768" font-size="12">LDOs (<tspan class="m">vddwcn</tspan>, <tspan class="m">vddusb</tspan>, <tspan class="m">vddsim0</tspan>, SD) · WLED backlight</text>
+<text x="356" y="785" font-size="12">keypad light · vibrator · torch · power key</text>
+<text x="356" y="802" font-size="12">EIC (headset detect) at <tspan class="m">0x40608280</tspan></text>
+<path d="M300,613 L300,696 L420,696 L420,711" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<text x="308" y="652" font-size="12" class="mu">ADI bus</text>
+</svg>

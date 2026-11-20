@@ -2,6 +2,9 @@
 
 ## Boot chain
 
+![Boot chain from the boot ROM to UserImg, with the download-mode branches](img/boot-chain.svg)
+
+
 ```
 SoC boot ROM (immutable, in silicon)
   -> FDL1       first-stage loader, NAND partition type 0x6200 (download mode only)
@@ -73,6 +76,9 @@ The vendor tool's `BMFileType.ini` confirms the platform: `[UMS9117] CODE=0xb000
 `NAND_FDL=0x2200`, matching the `nFileFlag` values in the PAC file table.
 
 ## NAND layout (SPI NAND, 128 KiB blocks)
+
+![SPI NAND layout, zoomed on the first blocks and to scale for the whole device](img/nand-layout.svg)
+
 
 From the FDL2 partition table (**Read**, and confirmed by readback of the UserImg range
 on hardware):

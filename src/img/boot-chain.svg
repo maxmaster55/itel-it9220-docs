@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="t d">
+<title id="t">IT9220 boot chain</title>
+<desc id="d">Boot ROM, BOOT0, BOOT1, KernelImg and UserImg, with the download-mode branches (FDL1/FDL2 and BOOT1 auto download). No stage checks a hash or signature.</desc>
+<style>text{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;fill:#1f2328}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.mu{fill:#59636e}
+.b{font-weight:600}
+.h{font-size:20px;font-weight:700}
+.sub{font-size:13px;fill:#59636e}</style>
+<defs><marker id="a0969da" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#0969da"/></marker><marker id="a6e7781" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#6e7781"/></marker><marker id="a9a6700" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#9a6700"/></marker></defs>
+<rect width="960" height="600" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<text x="24" y="36" font-size="20" class="h">Boot chain</text>
+<text x="24" y="56" font-size="13" class="sub">No hash, CRC or signature check at any stage. Red outline: never write these.</text>
+<rect x="40" y="76" width="440" height="50" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="52" y="97" font-size="14" class="b" style="fill:#6e7781">SoC boot ROM</text>
+<text x="52" y="115" font-size="13">immutable, in silicon</text>
+<rect x="40" y="156" width="440" height="68" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="2.2"/>
+<text x="52" y="177" font-size="14" class="b" style="fill:#0969da">BOOT0  ·  NAND blocks 0-1</text>
+<text x="52" y="195" font-size="13">payload base <tspan class="m">0x6400</tspan>; read raw by the ROM</text>
+<text x="52" y="212" font-size="13">reads BOOT1 raw to <tspan class="m">0x80100000</tspan>, checks only ECC</text>
+<rect x="40" y="156" width="440" height="68" rx="6" fill="none" stroke="#cf222e" stroke-width="2.2"/>
+<rect x="40" y="254" width="440" height="68" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="52" y="275" font-size="14" class="b" style="fill:#0969da">BOOT1  ·  NAND blocks 2-3</text>
+<text x="52" y="293" font-size="13">payload base <tspan class="m">0x80100200</tspan></text>
+<text x="52" y="310" font-size="13">reads the reset mode: ADI <tspan class="m">0x40608E24</tspan> bits [8:4]</text>
+<rect x="40" y="254" width="440" height="68" rx="6" fill="none" stroke="#cf222e" stroke-width="2.2"/>
+<rect x="40" y="360" width="440" height="86" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="52" y="381" font-size="14" class="b" style="fill:#0969da">KernelImg  ·  partition 3  (MOCOR, ThreadX)</text>
+<text x="52" y="399" font-size="13">DHTB header: checks only magic and version 1</text>
+<text x="52" y="416" font-size="13">copied to <tspan class="m">0x80E65E00</tspan>, jumps to <tspan class="m">0x80E66000</tspan></text>
+<text x="52" y="433" font-size="13">sets up clocks, power, panel; hold-key listener</text>
+<rect x="40" y="360" width="440" height="86" rx="6" fill="none" stroke="#cf222e" stroke-width="2.2"/>
+<rect x="40" y="484" width="440" height="68" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="52" y="505" font-size="14" class="b" style="fill:#1a7f37">UserImg  ·  partition 4  (phone app, T_P_APP)</text>
+<text x="52" y="523" font-size="13">not loaded: window <tspan class="m">0x88000000</tspan>, size <tspan class="m">0x1200000</tspan></text>
+<text x="52" y="540" font-size="13">demand-paged from NAND, 4 KiB per fault</text>
+<path d="M260,126 L260,155" fill="none" stroke="#0969da" stroke-width="1.5" marker-end="url(#a0969da)"/>
+<path d="M260,224 L260,253" fill="none" stroke="#0969da" stroke-width="1.5" marker-end="url(#a0969da)"/>
+<path d="M260,322 L260,359" fill="none" stroke="#0969da" stroke-width="1.5" marker-end="url(#a0969da)"/>
+<path d="M260,446 L260,483" fill="none" stroke="#0969da" stroke-width="1.5" marker-end="url(#a0969da)"/>
+<text x="270" y="345" font-size="12" class="mu">other reset modes</text>
+<rect x="560" y="76" width="360" height="86" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="572" y="97" font-size="14" class="b" style="fill:#9a6700">Download mode (from the ROM)</text>
+<text x="572" y="115" font-size="13">FDL1 runs from on-chip RAM <tspan class="m">0x6200</tspan></text>
+<text x="572" y="132" font-size="13">FDL2 runs at <tspan class="m">0x80100000</tspan>, does the NAND writes</text>
+<text x="572" y="149" font-size="13">Unisoc BSL protocol over USB</text>
+<path d="M480,101 L559,101" fill="none" stroke="#9a6700" stroke-width="1.5" marker-end="url(#a9a6700)"/>
+<text x="492" y="94" font-size="12" class="mu">download</text>
+<rect x="560" y="234" width="360" height="68" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="572" y="255" font-size="14" class="b" style="fill:#9a6700">BOOT1 auto download</text>
+<text x="572" y="273" font-size="13">brings up USB, answers the BSL</text>
+<text x="572" y="290" font-size="13">handshake with <tspan class="m">SPRD3</tspan></text>
+<path d="M480,280 L559,280" fill="none" stroke="#9a6700" stroke-width="1.5" marker-end="url(#a9a6700)"/>
+<text x="488" y="272" font-size="12" class="mu">mode <tspan class="m">0x17</tspan></text>
+<rect x="560" y="330" width="360" height="50" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="572" y="351" font-size="14" class="b" style="fill:#6e7781">TF_LOAD (TrustZone)</text>
+<text x="572" y="369" font-size="12">loaded only in reset mode 26</text>
+<path d="M480,304 L520,304 L520,355 L559,355" fill="none" stroke="#6e7781" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a6e7781)"/>
+<rect x="560" y="408" width="360" height="68" rx="6" fill="#ffebe9" stroke="#cf222e" stroke-width="1.2"/>
+<text x="572" y="429" font-size="14" class="b" style="fill:#cf222e">Failure behaviour</text>
+<text x="572" y="447" font-size="12">BOOT0 returns to the ROM on any failure</text>
+<text x="572" y="464" font-size="12">BOOT1 hangs in <tspan class="m">while(1)</tspan>: no fallback</text>
+<rect x="560" y="494" width="360" height="58" rx="6" fill="#ffffff" stroke="#8c959f" stroke-width="1.2"/>
+<text x="572" y="515" font-size="14" class="b">No fastboot, no unlock</text>
+<text x="572" y="533" font-size="12">flashing is BSL over USB only (page 3)</text>
+<rect x="40" y="571" width="22" height="14" rx="3" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="70" y="582" font-size="12" class="mu">ROM / other</text>
+<rect x="169.92" y="571" width="22" height="14" rx="3" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="199.92" y="582" font-size="12" class="mu">AP kernel side</text>
+<rect x="320" y="571" width="22" height="14" rx="3" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="350" y="582" font-size="12" class="mu">user image</text>
+<rect x="443.2" y="571" width="22" height="14" rx="3" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="473.2" y="582" font-size="12" class="mu">download / USB</text>
+</svg>

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="t d">
+<title id="t">UMS9117 memory map</title>
+<desc id="d">Physical address space of the UMS9117 as used by the stock firmware, and the 64 MB DRAM drawn to scale with the regions the modem side and the stock kernel use.</desc>
+<style>text{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;fill:#1f2328}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.mu{fill:#59636e}
+.b{font-weight:600}
+.h{font-size:20px;font-weight:700}
+.sub{font-size:13px;fill:#59636e}</style>
+<defs><marker id="a0969da" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#0969da"/></marker><marker id="a1a7f37" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1a7f37"/></marker><marker id="a6e7781" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#6e7781"/></marker><marker id="a8250df" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#8250df"/></marker><marker id="a9a6700" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#9a6700"/></marker></defs>
+<rect width="960" height="720" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<text x="24" y="36" font-size="20" class="h">Memory map</text>
+<text x="24" y="56" font-size="13" class="sub">Addresses increase downwards. Left: not to scale. Right: DRAM to scale.</text>
+<rect x="128" y="76" width="300" height="46" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<text x="120" y="95" font-size="12" class="m" text-anchor="end">0x00000000</text>
+<text x="140" y="94" font-size="13" class="b" style="fill:#6e7781">On-chip RAM</text>
+<text x="140" y="112" font-size="12">FDL1 loaded to <tspan class="m">0x6200</tspan>; vectors <tspan class="m">0x0..0x3C</tspan></text>
+<rect x="128" y="128" width="300" height="46" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="120" y="147" font-size="12" class="m" text-anchor="end">0x0000E400</text>
+<text x="140" y="146" font-size="13" class="b" style="fill:#9a6700">LTE DSP rings</text>
+<text x="140" y="164" font-size="12">to <tspan class="m">0x10BFF</tspan>; mode word <tspan class="m">0x10BF8</tspan></text>
+<rect x="128" y="180" width="300" height="46" rx="6" fill="#fbefff" stroke="#8250df" stroke-width="1.2"/>
+<text x="120" y="199" font-size="12" class="m" text-anchor="end">0x00010C00</text>
+<text x="140" y="198" font-size="13" class="b" style="fill:#8250df">GSM DSP dual-port area</text>
+<text x="140" y="216" font-size="12">FrameInst / RespQ queues</text>
+<rect x="128" y="232" width="300" height="46" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="120" y="251" font-size="12" class="m" text-anchor="end">0x12001000</text>
+<text x="140" y="250" font-size="13" class="b" style="fill:#0969da">GIC v2</text>
+<text x="140" y="268" font-size="12">GICD; GICC at <tspan class="m">0x12002000</tspan></text>
+<rect x="128" y="284" width="300" height="46" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="120" y="303" font-size="12" class="m" text-anchor="end">0x20000000</text>
+<text x="140" y="302" font-size="13" class="b" style="fill:#0969da">AHB peripherals</text>
+<text x="140" y="320" font-size="12">DMA, USB, SDIO, LCDC, NAND</text>
+<rect x="128" y="336" width="300" height="46" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="120" y="355" font-size="12" class="m" text-anchor="end">0x40000000</text>
+<text x="140" y="354" font-size="13" class="b" style="fill:#0969da">APB, AON, PMU, ADI</text>
+<text x="140" y="372" font-size="12">codec, VBC, mailbox, timers, GPIO</text>
+<rect x="128" y="388" width="300" height="46" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="120" y="407" font-size="12" class="m" text-anchor="end">0x60810000</text>
+<text x="140" y="406" font-size="13" class="b" style="fill:#9a6700">LTE security engine</text>
+<text x="140" y="424" font-size="12">radio power (PMU) <tspan class="m">0x60830000</tspan></text>
+<rect x="128" y="440" width="300" height="46" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="120" y="459" font-size="12" class="m" text-anchor="end">0x70000000</text>
+<text x="140" y="458" font-size="13" class="b" style="fill:#0969da">UART0 / UART1 / UART2</text>
+<text x="140" y="476" font-size="12"><tspan class="m">0x70000000</tspan>, <tspan class="m">0x70100000</tspan>, <tspan class="m">0x70200000</tspan></text>
+<rect x="128" y="492" width="300" height="46" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="120" y="511" font-size="12" class="m" text-anchor="end">0x80000000</text>
+<text x="140" y="510" font-size="13" class="b" style="fill:#1a7f37">DRAM, 64 MB</text>
+<text x="140" y="528" font-size="12">to <tspan class="m">0x83FFFFFF</tspan>  (detail on the right)</text>
+<rect x="128" y="544" width="300" height="46" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="120" y="563" font-size="12" class="m" text-anchor="end">0x88000000</text>
+<text x="140" y="562" font-size="13" class="b" style="fill:#1a7f37">UserImg window (virtual)</text>
+<text x="140" y="580" font-size="12"><tspan class="m">0x1200000</tspan>, demand-paged from NAND</text>
+<rect x="128" y="596" width="300" height="46" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="120" y="615" font-size="12" class="m" text-anchor="end">0xC0000000</text>
+<text x="140" y="614" font-size="13" class="b" style="fill:#9a6700">Modem / baseband I/O windows</text>
+<text x="140" y="632" font-size="12">to <tspan class="m">0xEFFFFFFF</tspan>; not ordinary peripherals</text>
+<rect x="520" y="76" width="92" height="600" rx="2" fill="#ffffff" stroke="#6e7781" stroke-width="1.2"/>
+<rect x="520" y="76" width="92" height="1.5" rx="1" fill="#f6f8fa" stroke="#6e7781" stroke-width="1"/>
+<rect x="520" y="77.1719" width="92" height="7.76367" rx="1" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<rect x="520" y="85.375" width="92" height="1.5" rx="1" fill="#fbefff" stroke="#8250df" stroke-width="1"/>
+<rect x="520" y="86.5469" width="92" height="28.125" rx="1" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<rect x="520" y="117.309" width="92" height="43.2861" rx="1" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<rect x="520" y="210.981" width="92" height="114.116" rx="1" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<rect x="520" y="329.125" width="92" height="9.375" rx="1" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<rect x="520" y="339.672" width="92" height="99.2872" rx="1" fill="#ddf4ff" stroke="#0969da" stroke-width="1"/>
+<rect x="520" y="438.952" width="92" height="235.876" rx="1" fill="#dafbe1" stroke="#1a7f37" stroke-width="1"/>
+<rect x="520" y="674.828" width="92" height="1.5" rx="1" fill="#f6f8fa" stroke="#6e7781" stroke-width="1"/>
+<line x1="520" y1="110.277" x2="612" y2="110.277" stroke="#8250df" stroke-width="2.5"/>
+<text x="514" y="80" font-size="11" class="m" text-anchor="end">0x80000000</text>
+<text x="514" y="680" font-size="11" class="m" text-anchor="end">0x84000000</text>
+<line x1="516" y1="151" x2="520" y2="151" stroke="#59636e"/>
+<text x="512" y="155" font-size="10" class="mu" text-anchor="end">8 MB</text>
+<line x1="516" y1="226" x2="520" y2="226" stroke="#59636e"/>
+<text x="512" y="230" font-size="10" class="mu" text-anchor="end">16 MB</text>
+<line x1="516" y1="301" x2="520" y2="301" stroke="#59636e"/>
+<text x="512" y="305" font-size="10" class="mu" text-anchor="end">24 MB</text>
+<line x1="516" y1="376" x2="520" y2="376" stroke="#59636e"/>
+<text x="512" y="380" font-size="10" class="mu" text-anchor="end">32 MB</text>
+<line x1="516" y1="451" x2="520" y2="451" stroke="#59636e"/>
+<text x="512" y="455" font-size="10" class="mu" text-anchor="end">40 MB</text>
+<line x1="516" y1="526" x2="520" y2="526" stroke="#59636e"/>
+<text x="512" y="530" font-size="10" class="mu" text-anchor="end">48 MB</text>
+<line x1="516" y1="601" x2="520" y2="601" stroke="#59636e"/>
+<text x="512" y="605" font-size="10" class="mu" text-anchor="end">56 MB</text>
+<path d="M614,76.5859 L620,76.5859 L640,85" fill="none" stroke="#6e7781" stroke-width="1"/>
+<text x="646" y="82" font-size="13" class="b" style="fill:#6e7781"><tspan class="m">0x80000000</tspan>  zeroed by stock at start-up</text>
+<text x="646" y="99" font-size="12">128 KiB</text>
+<path d="M614,81.0537 L620,81.0537 L640,136.874" fill="none" stroke="#9a6700" stroke-width="1"/>
+<text x="646" y="133.874" font-size="13" class="b" style="fill:#9a6700"><tspan class="m">0x80020000</tspan>  CM4 firmware</text>
+<text x="646" y="150.874" font-size="12"><tspan class="m">0xD4000</tspan> bytes</text>
+<path d="M614,85.9609 L620,85.9609 L640,188.818" fill="none" stroke="#8250df" stroke-width="1"/>
+<text x="646" y="185.818" font-size="13" class="b" style="fill:#8250df"><tspan class="m">0x80100000</tspan>  GSM shared block A</text>
+<text x="646" y="202.818" font-size="12"><tspan class="m">0x20000</tspan>; BOOT1 / FDL2 also run here</text>
+<path d="M614,100.609 L620,100.609 L640,240.77" fill="none" stroke="#9a6700" stroke-width="1"/>
+<text x="646" y="237.77" font-size="13" class="b" style="fill:#9a6700"><tspan class="m">0x80120000</tspan>  GSM DSP image</text>
+<text x="646" y="254.77" font-size="12"><tspan class="m">0x300000</tspan> bytes</text>
+<path d="M614,110.277 L620,110.277 L640,292.73" fill="none" stroke="#8250df" stroke-width="1"/>
+<text x="646" y="289.73" font-size="13" class="b" style="fill:#8250df"><tspan class="m">0x803A8000</tspan>  GSM shared block B</text>
+<text x="646" y="306.73" font-size="12">voice rings (inside the DSP's range)</text>
+<path d="M614,138.952 L620,138.952 L640,344.699" fill="none" stroke="#9a6700" stroke-width="1"/>
+<text x="646" y="341.699" font-size="13" class="b" style="fill:#9a6700"><tspan class="m">0x80468000</tspan>  LTE DSP image</text>
+<text x="646" y="358.699" font-size="12"><tspan class="m">0x49E000</tspan> bytes</text>
+<path d="M614,268.039 L620,268.039 L640,396.678" fill="none" stroke="#0969da" stroke-width="1"/>
+<text x="646" y="393.678" font-size="13" class="b" style="fill:#0969da"><tspan class="m">0x80E65E00</tspan>  KernelImg</text>
+<text x="646" y="410.678" font-size="12">DHTB header; code from <tspan class="m">0x80E66000</tspan></text>
+<path d="M614,333.812 L620,333.812 L640,448.668" fill="none" stroke="#0969da" stroke-width="1"/>
+<text x="646" y="445.668" font-size="13" class="b" style="fill:#0969da"><tspan class="m">0x81B00000</tspan>  page pool for UserImg</text>
+<text x="646" y="462.668" font-size="12">1 MB</text>
+<path d="M614,389.315 L620,389.315 L640,500.668" fill="none" stroke="#0969da" stroke-width="1"/>
+<text x="646" y="497.668" font-size="13" class="b" style="fill:#0969da"><tspan class="m">0x81C20000</tspan>  kernel data + BSS</text>
+<text x="646" y="514.668" font-size="12">to about <tspan class="m">0x826B7340</tspan></text>
+<path d="M614,556.89 L620,556.89 L640,555.89" fill="none" stroke="#1a7f37" stroke-width="1"/>
+<text x="646" y="552.89" font-size="13" class="b" style="fill:#1a7f37"><tspan class="m">0x826B7000</tspan>  stock heap / pool region</text>
+<text x="646" y="569.89" font-size="12">about 25 MB; OSA pools at <tspan class="m">0x8276D000</tspan></text>
+<path d="M614,675.414 L620,675.414 L640,645" fill="none" stroke="#6e7781" stroke-width="1"/>
+<text x="646" y="642" font-size="13" class="b" style="fill:#6e7781"><tspan class="m">0x83FE0000</tspan>  zeroed by stock at start-up</text>
+<text x="646" y="659" font-size="12">128 KiB</text>
+</svg>

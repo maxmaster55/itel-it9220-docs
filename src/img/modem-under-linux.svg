@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="728" viewBox="0 0 960 728" role="img" aria-labelledby="t d">
+<title id="t">Stock modem stack under Linux (mocord)</title>
+<desc id="d">Architecture of mocord: the stock KernelImg and UserImg are mapped at their own addresses inside a Linux process, a compatibility layer replaces ThreadX's port layer, and small kernel drivers forward interrupts and arbitrate shared hardware.</desc>
+<style>text{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;fill:#1f2328}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.mu{fill:#59636e}
+.b{font-weight:600}
+.h{font-size:20px;font-weight:700}
+.sub{font-size:13px;fill:#59636e}</style>
+<defs><marker id="a0f766e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#0f766e"/></marker><marker id="a1a7f37" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#1a7f37"/></marker><marker id="a59636e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#59636e"/></marker><marker id="a8250df" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#8250df"/></marker><marker id="a9a6700" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#9a6700"/></marker></defs>
+<rect width="960" height="728" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<text x="24" y="36" font-size="20" class="h">Stock modem stack under Linux ("mocord")</text>
+<text x="24" y="56" font-size="13" class="sub">Stock images run unmodified at their own addresses inside one Linux process.</text>
+<rect x="16" y="72" width="928" height="330" rx="10" fill="#dafbe1" fill-opacity="0.45" stroke="#1a7f37" stroke-opacity="0.5"/>
+<text x="34" y="237" font-size="13" class="b" text-anchor="middle" transform="rotate(-90 34 237)" style="fill:#1a7f37">Linux user space</text>
+<rect x="16" y="414" width="928" height="150" rx="10" fill="#d8f5f0" fill-opacity="0.45" stroke="#0f766e" stroke-opacity="0.5"/>
+<text x="34" y="489" font-size="13" class="b" text-anchor="middle" transform="rotate(-90 34 489)" style="fill:#0f766e">Linux kernel</text>
+<rect x="16" y="576" width="928" height="108" rx="10" fill="#f6f8fa" fill-opacity="0.45" stroke="#6e7781" stroke-opacity="0.5"/>
+<text x="34" y="630" font-size="13" class="b" text-anchor="middle" transform="rotate(-90 34 630)" style="fill:#6e7781">Hardware</text>
+<rect x="60" y="84" width="560" height="306" rx="10" fill="#ffffff" stroke="#8c959f" stroke-width="1.5"/>
+<text x="74" y="106" font-size="14" class="b">mocord  (SCHED_FIFO, mlockall, pre-faulted)</text>
+<rect x="74" y="118" width="252" height="86" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.2"/>
+<text x="86" y="139" font-size="14" class="b" style="fill:#0969da">Stock KernelImg</text>
+<text x="86" y="157" font-size="12">at <tspan class="m">0x80E65E00</tspan></text>
+<text x="86" y="174" font-size="12">ThreadX, 109 stock threads</text>
+<text x="86" y="191" font-size="12">protocol stack, layer-1 control</text>
+<rect x="354" y="118" width="252" height="86" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="366" y="139" font-size="14" class="b" style="fill:#1a7f37">Stock UserImg</text>
+<text x="366" y="157" font-size="12">at <tspan class="m">0x88000000</tspan>, <tspan class="m">mmap(MAP_FIXED)</tspan></text>
+<text x="366" y="174" font-size="12">ATC (AT), tcpip / DSM glue, MMI</text>
+<text x="366" y="191" font-size="12">calls in through 2003 veneers</text>
+<path d="M327,161 L353,161" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<rect x="74" y="218" width="532" height="158" rx="6" fill="#d8f5f0" stroke="#0f766e" stroke-width="1.2"/>
+<text x="86" y="239" font-size="14" class="b" style="fill:#0f766e">Compatibility layer (replaces ThreadX's port layer)</text>
+<text x="86" y="257" font-size="12">scheduler: swap the signal handler's <tspan class="m">ucontext</tspan> to switch threads</text>
+<text x="86" y="274" font-size="12">signal = interrupt: call stock's handler, queue the HISR</text>
+<text x="86" y="291" font-size="12">SIGSEGV: emulate modem I/O <tspan class="m">0xC0000000</tspan>-<tspan class="m">0xEFFFFFFF</tspan>; SIGILL: skip CP15, WFI</text>
+<text x="86" y="308" font-size="12">about 25 hooks: trace, sleep, asserts, irq off/restore, ISR register</text>
+<text x="86" y="325" font-size="12">NV served from a backup; stock's flash layer never writes NAND</text>
+<text x="86" y="342" font-size="12">OS tick from a Linux timer (SPI 29 stays Linux's)</text>
+<rect x="650" y="96" width="280" height="60" rx="6" fill="#ffffff" stroke="#8c959f" stroke-width="1.2"/>
+<text x="662" y="117" font-size="14" class="b">Host side</text>
+<text x="662" y="135" font-size="12">control over AT, data over TUN</text>
+<rect x="650" y="182" width="280" height="60" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="662" y="203" font-size="14" class="b" style="fill:#1a7f37">AT over a pseudo-port</text>
+<text x="662" y="221" font-size="12"><tspan class="m">+CREG</tspan>, <tspan class="m">+COPS</tspan>, <tspan class="m">+CSQ</tspan>, calls, SMS</text>
+<rect x="650" y="268" width="280" height="76" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.2"/>
+<text x="662" y="289" font-size="14" class="b" style="fill:#1a7f37">IP bridge</text>
+<text x="662" y="307" font-size="12">PDP context 1, cut at the DSM layer,</text>
+<text x="662" y="324" font-size="12">bridged to a Linux TUN device</text>
+<path d="M790,156 L790,181" fill="none" stroke="#59636e" stroke-width="1.5" marker-end="url(#a59636e)" marker-start="url(#a59636e)"/>
+<path d="M650,190 L607,190" fill="none" stroke="#1a7f37" stroke-width="1.5" marker-end="url(#a1a7f37)" marker-start="url(#a1a7f37)"/>
+<path d="M650,306 L630,306 L630,198 L607,198" fill="none" stroke="#1a7f37" stroke-width="1.5" marker-end="url(#a1a7f37)" marker-start="url(#a1a7f37)"/>
+<rect x="60" y="426" width="270" height="126" rx="6" fill="#d8f5f0" stroke="#0f766e" stroke-width="1.2"/>
+<text x="72" y="447" font-size="14" class="b" style="fill:#0f766e">mocirq / ums9117-irqfwd</text>
+<text x="72" y="465" font-size="12">masks the line, signals mocord</text>
+<text x="72" y="482" font-size="12">68/69 mailbox, 113/115 modem</text>
+<text x="72" y="499" font-size="12">timers, 71 <tspan class="m">DMA_LINK</tspan>,</text>
+<text x="72" y="516" font-size="12">10/13 SIM, 93</text>
+<rect x="346" y="426" width="274" height="126" rx="6" fill="#d8f5f0" stroke="#0f766e" stroke-width="1.2"/>
+<text x="358" y="447" font-size="14" class="b" style="fill:#0f766e">Shared-hardware driver</text>
+<text x="358" y="465" font-size="12">arbitrates what both sides touch:</text>
+<text x="358" y="482" font-size="12">GIC, AP timer, ADI/PMIC,</text>
+<text x="358" y="499" font-size="12">clock gates, AP DMA,</text>
+<text x="358" y="516" font-size="12">watchdog, deep sleep</text>
+<rect x="650" y="426" width="280" height="126" rx="6" fill="#d8f5f0" stroke="#0f766e" stroke-width="1.2"/>
+<text x="662" y="447" font-size="14" class="b" style="fill:#0f766e">Reserved memory (<tspan class="m">no-map</tspan>)</text>
+<text x="662" y="465" font-size="12"><tspan class="m">0x81B00000</tspan>-<tspan class="m">0x826B8000</tspan></text>
+<text x="662" y="482" font-size="12">+ DSP ranges + two 128 KiB blocks</text>
+<text x="662" y="499" font-size="12">physical addresses handed to</text>
+<text x="662" y="516" font-size="12">DMA or a DSP stay valid</text>
+<path d="M195,425 L195,377" fill="none" stroke="#0f766e" stroke-width="1.5" marker-end="url(#a0f766e)"/>
+<text x="203" y="410" font-size="12" class="mu">signal</text>
+<path d="M483,425 L483,377" fill="none" stroke="#0f766e" stroke-width="1.5" marker-end="url(#a0f766e)" marker-start="url(#a0f766e)"/>
+<rect x="60" y="590" width="270" height="80" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="72" y="611" font-size="14" class="b" style="fill:#9a6700">GSM DSP (CEVA TeakLite-4)</text>
+<text x="72" y="629" font-size="12">FrameInst / RespQ at <tspan class="m">0x10C00</tspan></text>
+<text x="72" y="646" font-size="12">shared blocks A, B in DRAM</text>
+<rect x="346" y="590" width="274" height="80" rx="6" fill="#fbefff" stroke="#8250df" stroke-width="1.2"/>
+<text x="358" y="611" font-size="14" class="b" style="fill:#8250df">Mailbox, timers, SIM0/1</text>
+<text x="358" y="629" font-size="12">interrupt lines into the GIC</text>
+<text x="358" y="646" font-size="12">forwarded one by one</text>
+<rect x="650" y="590" width="280" height="80" rx="6" fill="#fff8c5" stroke="#9a6700" stroke-width="1.2"/>
+<text x="662" y="611" font-size="14" class="b" style="fill:#9a6700">LTE DSP</text>
+<text x="662" y="629" font-size="12">attach reached once,</text>
+<text x="662" y="646" font-size="12">no user data (page 9)</text>
+<path d="M483,589 L483,566 L280,566 L280,553" fill="none" stroke="#8250df" stroke-width="1.5" marker-end="url(#a8250df)"/>
+<path d="M73,161 L48,161 L48,640 L59,640" fill="none" stroke="#9a6700" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a9a6700)" marker-start="url(#a9a6700)"/>
+<path d="M60,708 L92,708" fill="none" stroke="#9a6700" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="100" y="712" font-size="12" class="mu">stock code reads and writes the DSP's shared memory directly (physical addresses, hence the reserved ranges)</text>
+</svg>

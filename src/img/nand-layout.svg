@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 0 960 380" role="img" aria-labelledby="t d">
+<title id="t">IT9220 SPI NAND layout</title>
+<desc id="d">SPI NAND blocks from the FDL2 partition table: BOOT0, BOOT1, NV, DSP images, KernelImg, UserImg, MMIRes, the file system and the 43 reserved top blocks.</desc>
+<style>text{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;fill:#1f2328}
+.m{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.mu{fill:#59636e}
+.b{font-weight:600}
+.h{font-size:20px;font-weight:700}
+.sub{font-size:13px;fill:#59636e}</style>
+<defs><marker id="a59636e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#59636e"/></marker><marker id="acf222e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#cf222e"/></marker></defs>
+<rect width="960" height="380" rx="12" fill="#ffffff" stroke="#d0d7de"/>
+<text x="24" y="36" font-size="20" class="h">SPI NAND layout</text>
+<text x="24" y="56" font-size="13" class="sub">1024 blocks x 128 KiB, from the FDL2 partition table (first..last or first+count). Grey: not listed.</text>
+<rect x="40" y="102" width="880" height="44" rx="3" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<rect x="40" y="102" width="16.2963" height="44" rx="2" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+<rect x="56.2963" y="102" width="16.2963" height="44" rx="2" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+<rect x="72.5926" y="102" width="65.1852" height="44" rx="2" fill="#ffebe9" stroke="#cf222e" stroke-width="1"/>
+<rect x="211.111" y="102" width="203.704" height="44" rx="2" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<rect x="414.815" y="102" width="505.185" height="44" rx="2" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<text x="40" y="94" font-size="12" class="mu">blocks 0 .. 0x6B (zoomed)</text>
+<text x="105.185" y="129" font-size="13" class="b" text-anchor="middle" style="fill:#cf222e">NV</text>
+<text x="105.185" y="164" font-size="12" text-anchor="middle">4-11</text>
+<text x="312.963" y="129" font-size="13" class="b" text-anchor="middle" style="fill:#9a6700">gsmdsp</text>
+<text x="312.963" y="164" font-size="12" class="m" text-anchor="middle">0x15+0x19</text>
+<text x="667.407" y="129" font-size="13" class="b" text-anchor="middle" style="fill:#9a6700">ltedsp</text>
+<text x="667.407" y="164" font-size="12" class="m" text-anchor="middle">0x2E+0x3E</text>
+<text x="48.1481" y="129" font-size="11" class="b" text-anchor="middle" style="fill:#0969da">B0</text>
+<text x="64.4444" y="129" font-size="11" class="b" text-anchor="middle" style="fill:#0969da">B1</text>
+<text x="40" y="164" font-size="12">0-1, 2-3</text>
+<rect x="40" y="232" width="880" height="44" rx="3" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.2"/>
+<rect x="40" y="232" width="1.71875" height="44" rx="2" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+<rect x="41.7188" y="232" width="1.71875" height="44" rx="2" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+<rect x="43.4375" y="232" width="6.875" height="44" rx="2" fill="#ffebe9" stroke="#cf222e" stroke-width="1"/>
+<rect x="58.0469" y="232" width="21.4844" height="44" rx="2" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<rect x="79.5312" y="232" width="53.2812" height="44" rx="2" fill="#fff8c5" stroke="#9a6700" stroke-width="1"/>
+<rect x="246.25" y="232" width="96.25" height="44" rx="2" fill="#ddf4ff" stroke="#0969da" stroke-width="2"/>
+<rect x="342.5" y="232" width="120.312" height="44" rx="2" fill="#dafbe1" stroke="#1a7f37" stroke-width="1"/>
+<rect x="462.812" y="232" width="165" height="44" rx="2" fill="#fbefff" stroke="#8250df" stroke-width="1"/>
+<text x="40" y="224" font-size="12" class="mu">whole device, blocks 0 .. 1023 (to scale)</text>
+<defs><linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#ddf4ff"/><stop offset="1" stop-color="#f6f8fa"/></linearGradient></defs>
+<rect x="684.531" y="232" width="198.516" height="44" fill="url(#fade)" stroke="#0969da" stroke-dasharray="4 3"/>
+<rect x="883.047" y="232" width="36.9531" height="44" rx="2" fill="#ffebe9" stroke="#cf222e" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M40,172 L40,206" fill="none" stroke="#59636e" stroke-width="1" stroke-dasharray="5 4"/>
+<path d="M920,172 L132.812,206" fill="none" stroke="#59636e" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="294.375" y="259" font-size="13" class="b" text-anchor="middle" style="fill:#0969da">KernelImg</text>
+<text x="294.375" y="294" font-size="12" class="m" text-anchor="middle">0xF0+0x70</text>
+<text x="402.656" y="259" font-size="13" class="b" text-anchor="middle" style="fill:#1a7f37">UserImg</text>
+<text x="402.656" y="294" font-size="12" class="m" text-anchor="middle">0x160..0x1EB</text>
+<text x="545.312" y="259" font-size="13" class="b" text-anchor="middle" style="fill:#8250df">MMIRes</text>
+<text x="545.312" y="294" font-size="12" class="m" text-anchor="middle">0x1EC+0xC0</text>
+<text x="783.789" y="259" font-size="13" class="b" text-anchor="middle" style="fill:#0969da">file system (id 8)</text>
+<text x="783.789" y="294" font-size="12" text-anchor="middle">from 0x2EE, end not listed</text>
+<text x="920" y="224" font-size="12" class="mu" text-anchor="end">top 43 blocks: VBM_BOOT + bad-block maps</text>
+<path d="M902,228 L902,231" fill="none" stroke="#cf222e" stroke-width="1.5"/>
+<text x="40" y="332" font-size="12" class="mu">UserImg: 140 blocks, <tspan class="m">0x1180000</tspan> bytes, raw (attr <tspan class="m">0x100</tspan>). Thick outline: BOOT0, BOOT1, KernelImg: never write.</text>
+<text x="40" y="350" font-size="12" class="mu">Red: NV holds the IMEI and RF calibration: back it up before any write.</text>
+</svg>

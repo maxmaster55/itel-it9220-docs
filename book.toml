@@ -1,0 +1,12 @@
+[book]
+title = "itel IT9220 / Unisoc UMS9117 reference"
+authors = ["itel-it9220-docs contributors"]
+description = "Hardware and firmware reference for the itel IT9220 (Unisoc UMS9117)."
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+
+[output.html]
+git-repository-url = "https://github.com/maxmaster55/itel-it9220-docs"
